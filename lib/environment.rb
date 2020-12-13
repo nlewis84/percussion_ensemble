@@ -7,6 +7,7 @@ require_relative "percussion_ensembles/composer"
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
+require 'colorize'
 
 module PercussionEnsembles
   class Error < StandardError; end
