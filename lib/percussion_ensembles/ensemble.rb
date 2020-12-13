@@ -1,0 +1,4 @@
+class PercussionEnsembles::Ensemble
+
+
+end

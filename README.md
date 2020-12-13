@@ -1,4 +1,4 @@
-# PercussionEnsembles
+# Percussion Ensembles
 
 Search Tapspace.com and display a list of percussion ensembles based on criteria you supply.
 

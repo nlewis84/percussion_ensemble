@@ -1,0 +1,3 @@
+class PercussionEnsembles::Composer
+
+end
