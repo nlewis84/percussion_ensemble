@@ -5,7 +5,7 @@ class PercussionEnsembles::Ensemble
 
     def initialize(ensemble_hash)
         ensemble_hash.each do |key, value|
-          self.send("#{key}=", value)
+            self.send("#{key}=", value)
         end
         @@all << self
     end
