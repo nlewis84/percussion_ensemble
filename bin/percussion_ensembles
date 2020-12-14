@@ -3,3 +3,5 @@ require_relative "../lib/environment"
 
 PercussionEnsembles::CLI.new.call
 
+# require "irb"
+# IRB.start(__FILE__)
