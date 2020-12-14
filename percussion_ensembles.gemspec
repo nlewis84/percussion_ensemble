@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Search Tapspace.com for percussion ensembles.}
   spec.description   = %q{Search Tapspace.com for percussion ensembles.}
-  spec.homepage      = "http://www.google.com"
+  spec.homepage      = "https://github.com/nlewis84/percussion_ensemble"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
