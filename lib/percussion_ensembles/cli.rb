@@ -86,7 +86,7 @@ class PercussionEnsembles::CLI
         input = ""
        
         while input != "exit"    
-            puts "To return to the main menu, type 'exit'.".red
+            puts "To return to the previous menu, type 'exit'.".red
             puts "Type the number of players you would like in the ensemble.".yellow
 
             input = gets.strip

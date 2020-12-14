@@ -1,32 +1,37 @@
 class PercussionEnsembles::Composer
-    attr_accessor :name, :duration, :level, :personnel
-    attr_reader :songs
+    attr_accessor :name
+    attr_reader :songs, :duration, :level, :personnel
 
-    @@all = []
+    # @@all = []
 
-    def initialize(name)
-        @name = name
-        @songs = []
-        @@all << self
-    end
-    
-    def self.create(name)
-        composer = Composer.new(name)
-        composer
-    end
+    # def initialize(name)
+    #     @name = name
+    #     @songs = []
+    #     @@all << self
+    #     binding.pry
+    # end
 
-    def add_song(song)
-        song.composer = self unless song.composer
-        @songs << song unless songs.include?(song)
-    end
+    # def self.all
+    #     @@all
+    # end
 
-    def self.all
-        @@all
-    end
+    # def self.create(name)
+    #     composer = Composer.new(name)
+    #     composer
+    # end
 
-    def difficulties
-        self.songs.collect {|song| song.difficulty}.uniq
-    end
+    # def add_song(song)
+    #     song.composer(self) unless song.composer
+    #     @songs << song unless @songs.include?(song)
+    # end
+
+    # def songs
+    #     PercussionEnsembles::Ensemble.all.select {|ensemble| ensemble.composer == self}
+    # end
+
+    # def difficulties
+    #     self.songs.collect {|song| song.difficulty}.uniq
+    # end
 end
 
 ## iterate through ensemble_array.each

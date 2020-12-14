@@ -1,3 +1,0 @@
-class PercussionEnsembles::Difficulty
-
-end
