@@ -1,6 +1,6 @@
 # Percussion Ensembles
 
-Search Tapspace.com and display a list of percussion ensembles based on criteria you supply.
+Scrape Tapspace.com and display a list of percussion ensembles based on criteria you supply.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Users can utilize the CLI to access the full alphabetized library of Tap Space percussion ensembles, then filter those products by difficulty and number of performers.
 
 ## Development
 
@@ -30,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/percussion_ensembles. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/percussion_ensembles/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/nlewis84/percussion_ensembles. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/percussion_ensembles/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
