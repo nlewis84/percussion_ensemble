@@ -23,15 +23,6 @@ class PercussionEnsembles::Composer
     def self.all
         @@all
     end
-    # TRY THIS PART to make composers create as long as they don't exist already...it runs in CLI.make_composers1
-    def self.create_from_collection(ensemble_array)
-        binding.pry
-        ensemble_array.map do |ensemble|
-            composer = PercussionEnsembles::Composer.new(ensemble.composer)
-            composer
-            composer.add_song(ensemble)
-        end
-    end
 
     def difficulties
         self.songs.collect {|song| song.difficulty}.uniq
