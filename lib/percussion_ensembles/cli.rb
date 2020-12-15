@@ -28,7 +28,7 @@ class PercussionEnsembles::CLI
     def display_ensembles(ensembles = PercussionEnsembles::Ensemble.all)
         ensembles.each do |ensemble|
             puts "#{ensemble.name.upcase}".magenta
-            puts "#{ensemble.composer}".yellow
+            puts "#{ensemble.composer.name}".yellow
             puts "#{ensemble.level}".blue
             puts "#{ensemble.personnel}".cyan
             puts "#{ensemble.duration}".white

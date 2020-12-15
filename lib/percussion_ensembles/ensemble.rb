@@ -10,6 +10,7 @@ class PercussionEnsembles::Ensemble
         if @@all.none? {|ensemble| ensemble.name == self.name}
             @@all << self
         end
+        ## Alphabetize the @@all array
         # @@all.sort_by {|obj| obj.name}
     end
 

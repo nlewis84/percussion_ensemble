@@ -2,18 +2,25 @@ class PercussionEnsembles::Composer
     attr_accessor :name
     attr_reader :songs, :duration, :level, :personnel
 
-    # @@all = []
+    @@all = []
 
-    # def initialize(name)
-    #     @name = name
-    #     @songs = []
-    #     @@all << self
-    #     binding.pry
-    # end
+    def initialize(name)
+        @name = name
+        @songs = []
+        @@all << self
+    end
 
-    # def self.all
-    #     @@all
-    # end
+    def self.all
+        @@all
+    end
+
+    def self.find_or_create_by(name)
+        if self.all.find {|comp| comp.name == name}
+            composer = self.all.find {|comp| comp.name == name}
+        else
+            PercussionEnsembles::Composer.new(name)
+        end
+    end
 
     # def self.create(name)
     #     composer = Composer.new(name)
