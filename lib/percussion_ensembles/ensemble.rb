@@ -8,6 +8,7 @@ class PercussionEnsembles::Ensemble
             self.send("#{key}=", value)
         end
         @@all << self
+        # @@all.sort_by {|obj| obj.name}
     end
 
     def self.all
