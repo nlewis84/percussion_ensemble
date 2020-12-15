@@ -1,9 +1,23 @@
-# require 'watir'
+require 'watir'
 
 class PercussionEnsembles::Scraper
     def scrape(site)
-        # browser = Watir::Browser.new :chrome, headless: true
+        # browser = Watir::Browser.new :chrome#, headless: true
         # browser.goto site
+
+        # # # Counts the Divs and Tracks this so the whole page can be scraped
+        # div_count = browser.divs(:class => "catalog-list2").count - 2
+        # puts div_count
+        # last_div = browser.divs(:class => "catalog-list2")[div_count]
+    
+        # # Watir Actions
+        # # while div_count < 269
+        #     last_div.scroll.to :top
+        #     browser.div(class: "catalog-list2").wait_until(timeout: 5, message: "Oops not there")
+        #     div_count = browser.divs(:class => "catalog-list2").count - 2
+        # # end
+        
+        # browser.close
 
         doc = Nokogiri::HTML(open(site))
 
