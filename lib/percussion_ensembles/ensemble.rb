@@ -7,7 +7,9 @@ class PercussionEnsembles::Ensemble
         ensemble_hash.each do |key, value|
             self.send("#{key}=", value)
         end
-        @@all << self
+        if @@all.none? {|ensemble| ensemble.name == self.name}
+            @@all << self
+        end
         # @@all.sort_by {|obj| obj.name}
     end
 

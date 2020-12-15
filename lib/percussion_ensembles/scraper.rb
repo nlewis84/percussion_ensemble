@@ -1,19 +1,11 @@
+# require 'watir'
+
 class PercussionEnsembles::Scraper
     def scrape(site)
-        # site = "https://www.tapspace.com/percussion-ensemble/" ## use this line to hard code the scrape
+        # browser = Watir::Browser.new :chrome, headless: true
+        # browser.goto site
+
         doc = Nokogiri::HTML(open(site))
-
-        # titles = doc.css("div.catalog-product-image img")
-        # composers = doc.css("div.catalog-product-title a:nth-of-type(2)")
-        # more_info = doc.css("div.catalog-fields")
-
-        # puts titles.count
-        # puts composers.count
-        # puts more_info.count
-
-        # puts titles.first["title"]
-        # puts composers.first["title"]
-        # puts more_info.first.text.split(" | ")
 
         ensembles = []
 
