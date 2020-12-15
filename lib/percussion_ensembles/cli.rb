@@ -1,19 +1,27 @@
 class PercussionEnsembles::CLI
 
-    BASE_PATH = "https://www.tapspace.com/percussion-ensemble/"
-    # BASE_PATH = "https://www.tapspace.com/brian-slawson/"
+    # @@site1 = "https://www.tapspace.com/percussion-ensemble/"
+    @@site1 = "https://www.tapspace.com/percussion-ensemble/#filter_306_39&CatalogSetSortBy=name&apply_filters=yes"
+    @@site2 = "https://www.tapspace.com/percussion-ensemble/#filter_307_39&CatalogSetSortBy=name&apply_filters=yes"
+    @@site3 = "https://www.tapspace.com/percussion-ensemble/#filter_308_39&CatalogSetSortBy=date&apply_filters=yes"
+    @@site4 = "https://www.tapspace.com/percussion-ensemble/#filter_309_39&CatalogSetSortBy=price_desc&apply_filters=yes"
+    @@site5 = "https://www.tapspace.com/percussion-ensemble/#filter_310_39&CatalogSetSortBy=price_desc&apply_filters=yes"
 
     def call
         puts "---------------------------------------------".green
         puts "Welcome to Percussion Ensembles!".green
         puts "---------------------------------------------".green
-        make_ensembles
+        make_ensembles(@@site1)
+        make_ensembles(@@site2)
+        make_ensembles(@@site3)
+        make_ensembles(@@site4)
+        make_ensembles(@@site5)
         display_ensembles
         menu
     end
 
-    def make_ensembles
-        ensembles_array = PercussionEnsembles::Scraper.new.scrape(BASE_PATH)
+    def make_ensembles(site)
+        ensembles_array = PercussionEnsembles::Scraper.new.scrape(site)
         PercussionEnsembles::Ensemble.create_from_collection(ensembles_array)
     end
 
