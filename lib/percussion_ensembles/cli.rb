@@ -1,10 +1,7 @@
 class PercussionEnsembles::CLI
 
-    ## THE SITE I REALLY WANT TO SCRAPE (IF I CAN GET WATIR WORKING)
-    @@site1 = "https://www.tapspace.com/percussion-ensemble/#&CatalogSetSortBy=name&apply_filters=yes"
-
-    ## HARDCODED WEBSITES (IF I CANT GET WATIR WORKING)
-    # @@site1 = "https://www.tapspace.com/percussion-ensemble/#filter_306_39&CatalogSetSortBy=name&apply_filters=yes"
+    ## HARDCODED WEBSITES
+    @@site1 = "https://www.tapspace.com/percussion-ensemble/#filter_306_39&CatalogSetSortBy=name&apply_filters=yes"
     # @@site2 = "https://www.tapspace.com/percussion-ensemble/#filter_307_39&CatalogSetSortBy=name&apply_filters=yes"
     # @@site3 = "https://www.tapspace.com/percussion-ensemble/#filter_308_39&CatalogSetSortBy=date&apply_filters=yes"
     # @@site4 = "https://www.tapspace.com/percussion-ensemble/#filter_309_39&CatalogSetSortBy=price_desc&apply_filters=yes"
