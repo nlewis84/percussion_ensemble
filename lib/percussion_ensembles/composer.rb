@@ -27,10 +27,10 @@ class PercussionEnsembles::Composer
     #     composer
     # end
 
-    # def add_song(song)
-    #     song.composer(self) unless song.composer
-    #     @songs << song unless @songs.include?(song)
-    # end
+    def add_song(song)
+        song.composer(self) unless song.composer
+        @songs << song unless @songs.include?(song)
+    end
 
     # def songs
     #     PercussionEnsembles::Ensemble.all.select {|ensemble| ensemble.composer == self}

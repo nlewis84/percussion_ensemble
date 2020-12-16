@@ -40,6 +40,7 @@ class PercussionEnsembles::CLI
         input = ""
 
         while input!= "exit"
+            puts "To search by composer, enter 'composer'.".cyan
             puts "To search by difficulty, enter 'difficulty'.".cyan
             puts "To search by number of players, enter 'players'.".cyan
             puts "To search by difficulty and number of players, enter 'both'.".cyan
@@ -49,12 +50,37 @@ class PercussionEnsembles::CLI
             input = gets.strip
 
             case input
+            when "composer"
+                composer
             when "difficulty"
                 difficulty
             when "players"
                 players
             when "both"
                 both
+            end
+        end
+    end
+
+    def composer(ensembles = PercussionEnsembles::Ensemble.all)
+        input = ""
+
+        while input != "exit"    
+            PercussionEnsembles::Composer.all.each_with_index {|composer, i| puts "#{i+1}. #{composer.name}".cyan}
+            puts "To return to the main menu, type 'exit'.".red
+            puts "Type the number of the composer you would like to see.".yellow
+            puts "Results will be above the list of composers!".yellow
+
+            input = gets.strip
+            puts "---------------------------------------------".green
+            
+            if input != "exit"
+                input = input.to_i - 1
+                if input.between?(0, PercussionEnsembles::Composer.all.count)
+                    display = display_ensembles(PercussionEnsembles::Composer.all[input].songs)
+                else
+                    puts "NOT A VALID INPUT...Type a number from the list above.".red
+                end
             end
         end
     end
@@ -103,6 +129,7 @@ class PercussionEnsembles::CLI
             
             if ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input}.any?
                 display = display_ensembles(ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input})
+            elsif input == "exit"
             else
                 puts "NO ENSEMBLES TO DISPLAY".red
             end
