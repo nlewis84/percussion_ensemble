@@ -11,8 +11,7 @@ class PercussionEnsembles::Ensemble
             @@all << self
         end
         self.composer.add_song(self)
-        ## Alphabetize the @@all array
-        # @@all.sort_by {|obj| obj.name}
+        @@all.sort_by {|obj| obj.name}
     end
 
     def self.all

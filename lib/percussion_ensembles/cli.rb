@@ -77,7 +77,7 @@ class PercussionEnsembles::CLI
             if input != "exit"
                 input = input.to_i - 1
                 if input.between?(0, PercussionEnsembles::Composer.all.count)
-                    display = display_ensembles(PercussionEnsembles::Composer.all[input].songs)
+                    display_ensembles(PercussionEnsembles::Composer.all[input].songs)
                 else
                     puts "NOT A VALID INPUT...Type a number from the list above.".red
                 end
