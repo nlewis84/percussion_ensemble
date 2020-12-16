@@ -4,23 +4,18 @@ Scrape Tapspace.com and display a list of percussion ensembles based on criteria
 
 ## Installation
 
-Add this line to your application's Gemfile:
+To test it out, clone this repo and run:
 
-```ruby
-gem 'percussion_ensembles'
-```
-
-And then execute:
-
+    $ cd percussion_ensembles
     $ bundle install
 
-Or install it yourself as:
+To test it out, clone this repo and run:
 
-    $ gem install percussion_ensembles
+    $ ./bin/percussion_ensembles
 
 ## Usage
 
-Users can utilize the CLI to access the full alphabetized library of Tap Space percussion ensembles, then filter those products by difficulty and number of performers.
+Users can utilize the CLI to access the full alphabetized library of Tap Space percussion ensembles, then filter those products by composer, difficulty, and/or number of performers.
 
 ## Development
 
