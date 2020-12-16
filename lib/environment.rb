@@ -9,10 +9,6 @@ require 'open-uri'
 require 'pry'
 require 'colorize'
 
-# Remove these two lines if you can't get Watir to work
-require 'webdrivers'
-require 'watir'
-
 module PercussionEnsembles
   class Error < StandardError; end
   # Your code goes here...

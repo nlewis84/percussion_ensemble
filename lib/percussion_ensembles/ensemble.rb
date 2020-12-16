@@ -21,5 +21,4 @@ class PercussionEnsembles::Ensemble
     def self.create_from_collection(ensemble_array)
         ensemble_array.map {|ensemble| PercussionEnsembles::Ensemble.new(ensemble)}
     end
-
 end

@@ -1,8 +1,6 @@
 class PercussionEnsembles::CLI
 
-    ## HARDCODED WEBSITES
     @@site = "https://www.tapspace.com/percussion-ensemble/#filter_306_39&CatalogSetSortBy=name&apply_filters=yes"
-
 
     def call
         puts "---------------------------------------------".green

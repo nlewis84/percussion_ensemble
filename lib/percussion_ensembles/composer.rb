@@ -26,5 +26,4 @@ class PercussionEnsembles::Composer
         song.composer(self) unless song.composer
         @songs << song unless @songs.include?(song)
     end
-
 end
