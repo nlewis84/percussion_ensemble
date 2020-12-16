@@ -1,21 +1,14 @@
 class PercussionEnsembles::CLI
 
     ## HARDCODED WEBSITES
-    @@site1 = "https://www.tapspace.com/percussion-ensemble/#filter_306_39&CatalogSetSortBy=name&apply_filters=yes"
-    # @@site2 = "https://www.tapspace.com/percussion-ensemble/#filter_307_39&CatalogSetSortBy=name&apply_filters=yes"
-    # @@site3 = "https://www.tapspace.com/percussion-ensemble/#filter_308_39&CatalogSetSortBy=date&apply_filters=yes"
-    # @@site4 = "https://www.tapspace.com/percussion-ensemble/#filter_309_39&CatalogSetSortBy=price_desc&apply_filters=yes"
-    # @@site5 = "https://www.tapspace.com/percussion-ensemble/#filter_310_39&CatalogSetSortBy=price_desc&apply_filters=yes"
+    @@site = "https://www.tapspace.com/percussion-ensemble/#filter_306_39&CatalogSetSortBy=name&apply_filters=yes"
+
 
     def call
         puts "---------------------------------------------".green
         puts "Welcome to Percussion Ensembles!".green
         puts "---------------------------------------------".green
-        make_ensembles(@@site1)
-        # make_ensembles(@@site2)
-        # make_ensembles(@@site3)
-        # make_ensembles(@@site4)
-        # make_ensembles(@@site5)
+        make_ensembles(@@site)
         display_ensembles
         menu
     end
@@ -69,7 +62,7 @@ class PercussionEnsembles::CLI
             PercussionEnsembles::Composer.all.each_with_index {|composer, i| puts "#{i+1}. #{composer.name}".cyan}
             puts "To return to the main menu, type 'exit'.".red
             puts "Type the number of the composer you would like to see.".yellow
-            puts "Results will be above the list of composers!".yellow
+            puts "Results will be above the list of composers!".white
 
             input = gets.strip
             puts "---------------------------------------------".green
