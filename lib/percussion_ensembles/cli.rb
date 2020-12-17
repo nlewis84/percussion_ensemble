@@ -6,11 +6,11 @@ class PercussionEnsembles::CLI
     @@site4 = "https://www.tapspace.com/new-releases/"
 
     def call
-        puts "---------------------------------------------".green
-        puts "Welcome to Percussion Ensembles!".green
-        puts "---------------------------------------------".green
-        puts "Finding pieces now...".green
-        puts "---------------------------------------------".green
+        puts "----------------------------------------------".green
+        puts "       Welcome to Percussion Ensembles!".yellow
+        puts "----------------------------------------------".green
+        puts "            Finding pieces now....".red
+        puts "----------------------------------------------".green
         make_ensembles(@@site1)
         make_ensembles(@@site2)
         make_ensembles(@@site3)
@@ -31,7 +31,7 @@ class PercussionEnsembles::CLI
             puts "#{ensemble.level}".blue
             puts "#{ensemble.personnel}".cyan
             puts "#{ensemble.duration}".white
-            puts "---------------------------------------------".green
+            puts "----------------------------------------------".green
         end
     end
 
@@ -65,18 +65,21 @@ class PercussionEnsembles::CLI
         input = ""
 
         while input != "exit"    
-            PercussionEnsembles::Composer.all.each_with_index {|composer, i| puts "#{i+1}. #{composer.name}".cyan}
+            sorted_composers = PercussionEnsembles::Composer.all.sort_by {|composer| composer.name}
+            sorted_composers.each_with_index {|composer, i| puts "#{i+1}. #{composer.name}".cyan}
             puts "To return to the main menu, type 'exit'.".red
             puts "Type the number of the composer you would like to see.".yellow
-            puts "Results will be above the list of composers!".white
+            puts "----------------------------------------------".green
+            puts " Results will be above the list of composers!".white
+            puts "----------------------------------------------".green
 
             input = gets.strip
-            puts "---------------------------------------------".green
+            puts "----------------------------------------------".green
             
             if input != "exit"
                 input = input.to_i - 1
-                if input.between?(0, PercussionEnsembles::Composer.all.count)
-                    display_ensembles(PercussionEnsembles::Composer.all[input].songs)
+                if input.between?(0, sorted_composers.count)
+                    display_ensembles(sorted_composers[input].songs)
                 else
                     puts "NOT A VALID INPUT...Type a number from the list above.".red
                 end
@@ -98,7 +101,7 @@ class PercussionEnsembles::CLI
 
             input = gets.strip
 
-            puts "---------------------------------------------".green
+            puts "----------------------------------------------".green
             
             case input
             when "1"
@@ -124,7 +127,7 @@ class PercussionEnsembles::CLI
 
             input = gets.strip
 
-            puts "---------------------------------------------".green
+            puts "----------------------------------------------".green
             
             if ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input}.any?
                 display = display_ensembles(ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input})
@@ -144,7 +147,7 @@ class PercussionEnsembles::CLI
 
             input = gets.strip
 
-            puts "---------------------------------------------".green
+            puts "----------------------------------------------".green
             
             if ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input}.any?
                 display = display_ensembles(ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input})

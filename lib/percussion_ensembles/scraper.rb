@@ -8,7 +8,9 @@ class PercussionEnsembles::Scraper
             current_ensemble = {}
 
             ensemble_title = card.css("div.catalog-product-image img").first["title"]
-            composer_name = card.css("div.catalog-product-title a:nth-of-type(2)").first["title"]
+
+            full_name = card.css("div.catalog-product-title a:nth-of-type(2)").first["title"].split
+            composer_name = "#{full_name.last}, #{full_name[0]}"
             
             composer = PercussionEnsembles::Composer.find_or_create_by(composer_name)
             
