@@ -39,11 +39,11 @@ class PercussionEnsembles::CLI
         input = ""
 
         while input!= "exit"
-            puts "To search by composer, enter 'composer'.".cyan
-            puts "To search by difficulty, enter 'difficulty'.".cyan
-            puts "To search by number of players, enter 'players'.".cyan
-            puts "To search by difficulty and number of players, enter 'both'.".cyan
-            puts "To quit, type 'exit'.".red
+            puts "To search by composer, enter '".cyan + "composer".white + "'.".cyan
+            puts "To search by difficulty, enter '".cyan + "difficulty".white + "'.".cyan
+            puts "To search by number of players, enter '".cyan + "players".white + "'.".cyan
+            puts "To search by difficulty and number of players, enter '".cyan + "both".white + "'.".cyan
+            puts "To quit, type '".cyan + "exit".red + "'.".cyan
             puts "What would you like to do?".yellow
 
             input = gets.strip
@@ -67,8 +67,9 @@ class PercussionEnsembles::CLI
         while input != "exit"    
             sorted_composers = PercussionEnsembles::Composer.all.sort_by {|composer| composer.name}
             sorted_composers.each_with_index {|composer, i| puts "#{i+1}. #{composer.name}".cyan}
-            puts "To return to the main menu, type 'exit'.".red
-            puts "Type the number of the composer you would like to see.".yellow
+            puts "----------------------------------------------".green
+            puts "   To return to the main menu, type '".cyan + "exit".red + "'.".cyan
+            puts "     Select a composer by typing a number".yellow
             puts "----------------------------------------------".green
             puts " Results will be above the list of composers!".white
             puts "----------------------------------------------".green
@@ -90,19 +91,20 @@ class PercussionEnsembles::CLI
     def difficulty(ensembles = PercussionEnsembles::Ensemble.all)
         input = ""
 
-        while input != "exit"    
+        while input != "exit"   
             puts "1. Easy".cyan
             puts "2. Med-Easy".cyan
             puts "3. Medium".cyan
             puts "4. Med-Advanced".cyan
             puts "5. Advanced".cyan
-            puts "To return to the main menu, type 'exit'.".red
-            puts "Type the number of the difficulty you would like to see.".yellow
-
-            input = gets.strip
+            puts "----------------------------------------------".green
+            puts "To return to the main menu, type '".cyan + "exit".red + "'.".cyan
+            puts "Select a difficulty by typing its number.".yellow
 
             puts "----------------------------------------------".green
-            
+
+            input = gets.strip
+                       
             case input
             when "1"
                 display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Easy"})
@@ -121,13 +123,11 @@ class PercussionEnsembles::CLI
     def players(ensembles = PercussionEnsembles::Ensemble.all)
         input = ""
        
-        while input != "exit"    
+        while input != "exit"   
             puts "To return to the previous menu, type 'exit'.".red
             puts "Type the number of players you would like in the ensemble. 0 will give you a list of uncategorized pieces.".yellow
-
-            input = gets.strip
-
             puts "----------------------------------------------".green
+            input = gets.strip
             
             if ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input}.any?
                 display = display_ensembles(ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input})
@@ -142,7 +142,7 @@ class PercussionEnsembles::CLI
         input = ""
        
         while input != "exit"    
-            puts "To return to the main menu, type 'exit'.".red
+            puts "To return to the main menu, type '".cyan + "exit".red + "'.".cyan
             puts "Type the number of players you would like in the ensemble.".yellow
 
             input = gets.strip
