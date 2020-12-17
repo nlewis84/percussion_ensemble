@@ -1,12 +1,20 @@
 class PercussionEnsembles::CLI
 
-    @@site = "https://www.tapspace.com/percussion-ensemble/#filter_306_39&CatalogSetSortBy=name&apply_filters=yes"
+    @@site1 = "https://www.tapspace.com/percussion-ensemble/"
+    @@site2 = "https://www.tapspace.com/chamber-music/"
+    @@site3 = "https://www.tapspace.com/steel-band/"
+    @@site4 = "https://www.tapspace.com/new-releases/"
 
     def call
         puts "---------------------------------------------".green
         puts "Welcome to Percussion Ensembles!".green
         puts "---------------------------------------------".green
-        make_ensembles(@@site)
+        puts "Finding pieces now...".green
+        puts "---------------------------------------------".green
+        make_ensembles(@@site1)
+        make_ensembles(@@site2)
+        make_ensembles(@@site3)
+        make_ensembles(@@site4)
         display_ensembles
         menu
     end
@@ -112,7 +120,7 @@ class PercussionEnsembles::CLI
        
         while input != "exit"    
             puts "To return to the previous menu, type 'exit'.".red
-            puts "Type the number of players you would like in the ensemble.".yellow
+            puts "Type the number of players you would like in the ensemble. 0 will give you a list of uncategorized pieces.".yellow
 
             input = gets.strip
 
