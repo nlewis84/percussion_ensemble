@@ -133,13 +133,17 @@ class PercussionEnsembles::CLI
             puts "----------------------------------------------".green
             input = gets.strip
             
-            if ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input}.any?
-                display = display_ensembles(ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input})
+            if player_select(input).any?
+                display_ensembles(player_select(input))
             elsif input == "exit"
             else
                 puts "NO ENSEMBLES TO DISPLAY".red
             end
         end
+    end
+
+    def player_select(players, ensembles = PercussionEnsembles::Ensemble.all)
+        ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == players}
     end
 
     def both(ensembles = PercussionEnsembles::Ensemble.all)
