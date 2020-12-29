@@ -104,20 +104,24 @@ class PercussionEnsembles::CLI
             puts "----------------------------------------------".green
 
             input = gets.strip
-                       # make a method for the select below
+
             case input
             when "1"
-                display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Easy"})
+                difficulty_select("Easy")
             when "2"
-                display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Med-Easy"})
+                difficulty_select("Med-Easy")
             when "3"
-                display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Medium"})
+                difficulty_select("Medium")
             when "4"
-                display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Med-Advanced"})
+                difficulty_select("Med-Advanced")
             when "5"
-                display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Advanced"})
+                difficulty_select("Advanced")
             end
         end
+    end
+
+    def difficulty_select(difficulty, ensembles = PercussionEnsembles::Ensemble.all)
+        display_ensembles(ensembles.select {|ensemble| ensemble.level == difficulty})
     end
 
     def players(ensembles = PercussionEnsembles::Ensemble.all)
