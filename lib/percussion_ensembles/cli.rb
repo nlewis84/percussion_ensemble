@@ -104,18 +104,23 @@ class PercussionEnsembles::CLI
             puts "----------------------------------------------".green
 
             input = gets.strip
-
+                       # make a method for the select below
             case input
             when "1"
-                difficulty_select("Easy")
+                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Easy"})
+                display = difficulty_select("Easy", ensembles)
             when "2"
-                difficulty_select("Med-Easy")
+                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Med-Easy"})
+                display = difficulty_select("Med-Easy", ensembles)
             when "3"
-                difficulty_select("Medium")
+                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Medium"})
+                display = difficulty_select("Medium", ensembles)
             when "4"
-                difficulty_select("Med-Advanced")
+                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Med-Advanced"})
+                display = difficulty_select("Med-Advanced", ensembles)
             when "5"
-                difficulty_select("Advanced")
+                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Advanced"})
+                display = difficulty_select("Advanced", ensembles)
             end
         end
     end
@@ -135,7 +140,6 @@ class PercussionEnsembles::CLI
             
             if player_select(input).any?
                 display_ensembles(player_select(input))
-            elsif input == "exit"
             else
                 puts "NO ENSEMBLES TO DISPLAY".red
             end
