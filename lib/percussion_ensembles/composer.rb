@@ -15,8 +15,8 @@ class PercussionEnsembles::Composer
     end
 
     def self.find_or_create_by(name)
-        if self.all.find {|comp| comp.name == name}
-            composer = self.all.find {|comp| comp.name == name}
+        if composer = self.all.find {|comp| comp.name == name}
+            composer
         else
             PercussionEnsembles::Composer.new(name)
         end

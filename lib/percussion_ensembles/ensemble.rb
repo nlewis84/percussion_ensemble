@@ -7,9 +7,13 @@ class PercussionEnsembles::Ensemble
         ensemble_hash.each do |key, value|
             self.send("#{key}=", value)
         end
+
+        # do before init
         if @@all.none? {|ensemble| ensemble.name == self.name}
             @@all << self
         end
+        # end of change
+
         self.composer.add_song(self)
         @@all.sort_by {|obj| obj.name}
     end

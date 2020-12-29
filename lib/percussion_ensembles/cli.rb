@@ -104,7 +104,7 @@ class PercussionEnsembles::CLI
             puts "----------------------------------------------".green
 
             input = gets.strip
-                       
+                       # make a method for the select below
             case input
             when "1"
                 display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Easy"})

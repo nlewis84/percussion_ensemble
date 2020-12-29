@@ -2,9 +2,7 @@ class PercussionEnsembles::Scraper
     def scrape(site)
         doc = Nokogiri::HTML(open(site))
 
-        ensembles = []
-
-        doc.css("div.catalog-list2").each do |card|
+        doc.css("div.catalog-list2").map do |card|
             current_ensemble = {}
 
             ensemble_title = card.css("div.catalog-product-image img").first["title"]
@@ -16,6 +14,8 @@ class PercussionEnsembles::Scraper
             
             more_info = card.css("div.catalog-fields")
 
+            # refactor the following details into separate things.
+
             current_ensemble.merge!(:name => ensemble_title, :composer => composer)
             more_info.each do |info|
                 full_details = {}
@@ -25,8 +25,7 @@ class PercussionEnsembles::Scraper
                     current_ensemble.merge!(full_details)
                 end
             end
-            ensembles << current_ensemble
+            current_ensemble
         end
-        ensembles
     end
 end
