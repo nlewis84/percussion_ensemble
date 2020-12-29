@@ -104,29 +104,20 @@ class PercussionEnsembles::CLI
             puts "----------------------------------------------".green
 
             input = gets.strip
-                       # make a method for the select below
+
             case input
             when "1"
-                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Easy"})
                 display = difficulty_select("Easy", ensembles)
             when "2"
-                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Med-Easy"})
                 display = difficulty_select("Med-Easy", ensembles)
             when "3"
-                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Medium"})
                 display = difficulty_select("Medium", ensembles)
             when "4"
-                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Med-Advanced"})
                 display = difficulty_select("Med-Advanced", ensembles)
             when "5"
-                # display = display_ensembles(ensembles.select {|ensemble| ensemble.level == "Advanced"})
                 display = difficulty_select("Advanced", ensembles)
             end
         end
-    end
-
-    def difficulty_select(difficulty, ensembles = PercussionEnsembles::Ensemble.all)
-        display_ensembles(ensembles.select {|ensemble| ensemble.level == difficulty})
     end
 
     def players(ensembles = PercussionEnsembles::Ensemble.all)
@@ -146,10 +137,6 @@ class PercussionEnsembles::CLI
         end
     end
 
-    def player_select(players, ensembles = PercussionEnsembles::Ensemble.all)
-        ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == players}
-    end
-
     def both(ensembles = PercussionEnsembles::Ensemble.all)
         input = ""
        
@@ -161,12 +148,20 @@ class PercussionEnsembles::CLI
 
             puts "----------------------------------------------".green
             
-            if ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input}.any?
-                display = display_ensembles(ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == input})
+            if player_select(input).any?
+                display = display_ensembles(player_select(input))
                 difficulty(display)
             else
                 puts "NO ENSEMBLES TO DISPLAY".red
             end
         end
+    end
+
+    def difficulty_select(difficulty, ensembles = PercussionEnsembles::Ensemble.all)
+        display_ensembles(ensembles.select {|ensemble| ensemble.level == difficulty})
+    end
+
+    def player_select(players, ensembles = PercussionEnsembles::Ensemble.all)
+        ensembles.select {|ensemble| ensemble.personnel.to_i.to_s == players}
     end
 end
