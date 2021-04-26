@@ -12,8 +12,14 @@ Users can utilize the CLI to access an alphabetized library of Tap Space percuss
     $ ./bin/setup
     $ ./bin/percussion_ensembles
 
-To install this gem onto your local machine, run `bundle exec rake install`. 
-To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine:
+- run `bundle exec rake install`. 
+
+To release a new version:
+- Update the version number in `version.rb`
+- Run `bundle exec rake release`, which will create a git tag for the version
+- Push git commits and tags
+- Push the `.gem` file to [rubygems.org](https://rubygems.org)
 
 ## :headphones: Contributing
 
