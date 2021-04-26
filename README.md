@@ -1,16 +1,12 @@
 # :drum: Percussion Ensembles
 
-Scrape Tapspace.com and display a list of percussion ensembles based on criteria you supply.
+Users can utilize the CLI to access an alphabetized library of Tap Space percussion ensembles, then filter those products by composer, difficulty, and/or number of performers.
 
 ## :musical_score: Installation
 
 - Download or clone this project
 
 ## :musical_note: Usage
-
-Users can utilize the CLI to access the full alphabetized library of Tap Space percussion ensembles, then filter those products by composer, difficulty, and/or number of performers.
-
-## :notes: Usage
 
     $ cd percussion_ensembles
     $ ./bin/setup
