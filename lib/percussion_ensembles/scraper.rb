@@ -1,6 +1,6 @@
 class PercussionEnsembles::Scraper
     def scrape(site)
-        doc = Nokogiri::HTML(open(site))
+        doc = Nokogiri::HTML(URI.open(site))
 
         doc.css("div.catalog-list2").map do |card|
             current_ensemble = {}
