@@ -4,24 +4,20 @@ Scrape Tapspace.com and display a list of percussion ensembles based on criteria
 
 ## :musical_score: Installation
 
-To test it out, clone this repo and run:
-
-    $ cd percussion_ensembles
-    $ bundle install
-
-To test it out, clone this repo and run:
-
-    $ ./bin/percussion_ensembles
+- Download or clone this project
 
 ## :musical_note: Usage
 
 Users can utilize the CLI to access the full alphabetized library of Tap Space percussion ensembles, then filter those products by composer, difficulty, and/or number of performers.
 
-## :notes: Development
+## :notes: Usage
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+    $ cd percussion_ensembles
+    $ ./bin/setup
+    $ ./bin/percussion_ensembles
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. 
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## :headphones: Contributing
 
