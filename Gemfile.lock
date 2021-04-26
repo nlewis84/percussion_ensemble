@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     percussion_ensembles (0.1.0)
+      colorize
       nokogiri
       open-uri
 
@@ -11,13 +12,15 @@ GEM
     coderay (1.1.3)
     colorize (0.8.1)
     method_source (1.0.0)
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    mini_portile2 (2.5.0)
+    nokogiri (1.11.2)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     open-uri (0.1.0)
-    pry (0.13.1)
+    pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    racc (1.5.2)
     rake (12.3.3)
 
 PLATFORMS
