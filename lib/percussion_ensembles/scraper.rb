@@ -13,9 +13,9 @@ class PercussionEnsembles::Scraper
 
             ensemble_title = card.css("div.catalog-product-image img").first["title"]
 
-            full_name = card.css("div.catalog-product-title a:nth-of-type(2)").first["title"].split
-            composer_name = "#{full_name.last}, #{full_name[0]}"
-            
+            full_name = card.css("div.catalog-product-title a:nth-of-type(2)").any? ? card.css("div.catalog-product-title a:nth-of-type(2)").first["title"].split : ["Multiple", "Composers"]
+            composer_name = full_name[1] === "Composers" ? "#{full_name[0]} #{full_name[1]}" : "#{full_name.last}, #{full_name[0]}"
+
             composer = PercussionEnsembles::Composer.find_or_create_by(composer_name)
             
             more_info = card.css("div.catalog-fields")
