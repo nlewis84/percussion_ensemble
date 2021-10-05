@@ -1,6 +1,12 @@
 class PercussionEnsembles::Scraper
     def scrape(site)
-        doc = Nokogiri::HTML(URI.open(site))
+        browser = Watir::Browser.new :safari
+        browser.goto site
+        25.times do
+            browser.send_keys :end
+            sleep 0.5
+        end
+        doc = Nokogiri::HTML(browser.html)
 
         doc.css("div.catalog-list2").map do |card|
             current_ensemble = {}
@@ -25,6 +31,7 @@ class PercussionEnsembles::Scraper
                     current_ensemble.merge!(full_details)
                 end
             end
+            browser.close
             current_ensemble
         end
     end
