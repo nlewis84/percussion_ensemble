@@ -8,6 +8,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 require 'colorize'
+require 'watir'
 
 module PercussionEnsembles
   class Error < StandardError; end
