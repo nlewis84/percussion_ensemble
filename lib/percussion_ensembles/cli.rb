@@ -33,6 +33,8 @@ class PercussionEnsembles::CLI
             puts "#{ensemble.duration}".white
             puts "----------------------------------------------".green
         end
+        puts "#{ensembles.count} compositions found!".red
+        puts "----------------------------------------------".green
     end
 
     def menu
