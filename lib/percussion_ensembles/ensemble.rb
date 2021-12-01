@@ -1,5 +1,5 @@
 class PercussionEnsembles::Ensemble
-    attr_accessor :name, :composer, :duration, :level, :personnel
+    attr_accessor :id, :name, :composer, :duration, :level, :personnel
 
     @@all = []
 
@@ -23,6 +23,21 @@ class PercussionEnsembles::Ensemble
     end
   
     def self.create_from_collection(ensemble_array)
-        ensemble_array.map {|ensemble| PercussionEnsembles::Ensemble.new(ensemble)}
+        ensembles = ensemble_array.map {|ensemble| PercussionEnsembles::Ensemble.new(ensemble)}
+        
+        ensembles
     end
+    
+    def self.create_csv(ensembles)
+        file = "/Users/nlewis/Desktop/percussion_data.csv"
+        headers = ["id", "name", "composer", "duration", "level", "personnel"]
+
+        CSV.open(file, 'w', write_headers: true, headers: headers) do |writer|
+            ensembles.each do |ensemble|
+                writer << [ensemble.id, ensemble.name, ensemble.composer.name, ensemble.duration, ensemble.level, ensemble.personnel]
+            end
+        end
+    end
+    # ensembles = PercussionEnsembles.order(:name)
+
 end

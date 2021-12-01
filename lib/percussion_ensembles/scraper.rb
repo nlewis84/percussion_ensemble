@@ -20,9 +20,10 @@ class PercussionEnsembles::Scraper
             
             more_info = card.css("div.catalog-fields")
 
+            id = ensemble_title.to_i(36) + composer_name.to_i(36)
             # refactor the following details into separate things.
 
-            current_ensemble.merge!(:name => ensemble_title, :composer => composer)
+            current_ensemble.merge!(:id => id, :name => ensemble_title, :composer => composer)
             more_info.each do |info|
                 full_details = {}
                 info.text.split(" | ").each do |details|

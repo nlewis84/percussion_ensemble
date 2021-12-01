@@ -9,6 +9,7 @@ require 'open-uri'
 require 'pry'
 require 'colorize'
 require 'watir'
+require 'csv'
 
 module PercussionEnsembles
   class Error < StandardError; end

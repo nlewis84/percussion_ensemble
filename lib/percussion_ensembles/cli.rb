@@ -13,8 +13,9 @@ class PercussionEnsembles::CLI
         puts "----------------------------------------------".green
         make_ensembles(@@site1)
         make_ensembles(@@site2)
-        make_ensembles(@@site3)
+        # make_ensembles(@@site3)
         make_ensembles(@@site4)
+        make_csv
         display_ensembles
         menu
     end
@@ -22,6 +23,10 @@ class PercussionEnsembles::CLI
     def make_ensembles(site)
         ensembles_array = PercussionEnsembles::Scraper.new.scrape(site)
         PercussionEnsembles::Ensemble.create_from_collection(ensembles_array)
+    end
+
+    def make_csv(ensembles = PercussionEnsembles::Ensemble.all)
+        PercussionEnsembles::Ensemble.create_csv(ensembles)
     end
 
     def display_ensembles(ensembles = PercussionEnsembles::Ensemble.all)
